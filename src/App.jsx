@@ -1,41 +1,41 @@
 import { useState } from 'react';
-import Increment from "./modules/increment/Increment.jsx";
-import Hoc from "./modules/HigherOrderFunction.jsx";
+import ListView  from './modules/javascript/listView/ListView.jsx';
+function CourseSelector() {
+  const [activeModule, setActiveModule] = useState(null);
 
-function App() {
-  const [activeComponent, setActiveComponent] = useState(null);
+  const openJavaScript = () => setActiveModule('javascript');
+  const openReactjs = () => setActiveModule('reactjs');
 
   return (
-    <div className="flex h-screen w-screen m-0 p-0 overflow-hidden">
-      {/* Left Sidebar */}
-      <aside className="w-64 bg-gray-900 text-gray p-4 flex flex-col space-y-4">
-        <h2 className="text-xl font-bold mb-4">Modules</h2>
-        <button
-          onClick={() => setActiveComponent('hoc')}
-          className="text-left hover:bg-gray-800 p-2 rounded"
-        >
-          Higher Order Function
-        </button>
-        <button
-          onClick={() => setActiveComponent('increment')}
-          className="text-left hover:bg-gray-800 p-2 rounded"
-        >
-          Stop watch
-        </button>
-      </aside>
+    <div className="w-screen h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+      {!activeModule && (
+        <>
+          <h1 className="text-2xl font-bold mb-8 text-gray-800">Choose a Course</h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-3xl">
+            <div
+              onClick={openJavaScript}
+              className="cursor-pointer bg-white p-6 rounded-lg shadow hover:bg-blue-50 hover:shadow-md transition w-full"
+            >
+              <h2 className="text-lg font-semibold text-blue-700">JAVASCRIPT</h2>
+              <p className="text-sm text-gray-600 mt-2">Click to explore JavaScript course</p>
+            </div>
 
-      {/* Main Content Area */}
-      <main className="flex-1 p-6 bg-gray-100 overflow-y-auto">
-        {activeComponent === 'hoc' && <Hoc />}
-        {activeComponent === 'increment' && <Increment />}
-        {!activeComponent && (
-          <div className="text-gray-600 text-xl">
-            Select a module from the left panel
+            <div
+              onClick={openReactjs}
+              className="cursor-pointer bg-white p-6 rounded-lg shadow hover:bg-blue-50 hover:shadow-md transition w-full"
+            >
+              <h2 className="text-lg font-semibold text-blue-700">REACT JS</h2>
+              <p className="text-sm text-gray-600 mt-2">Click to explore React.js course</p>
+            </div>
           </div>
-        )}
-      </main>
+        </>
+      )}
+
+      {/* Conditionally render child modules */}
+      {activeModule === 'javascript' && <ListView />}
+      {activeModule === 'reactjs' && <ReactModule />}
     </div>
   );
 }
 
-export default App;
+export default CourseSelector;
