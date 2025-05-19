@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import Increment from "../increment/Increment.jsx";
 import Hoc from "./HigherOrderFunction.jsx";
 import EventLoop from "./EventLoop.jsx";
+import AsyncAwait from "./AsyncAwait.jsx";
 const ListView = () => {
     const [activeComponent,setActiveComponent] = useState('');
     return(
@@ -27,6 +28,12 @@ const ListView = () => {
         >
             Event loop
         </button>
+        <button
+            onClick={() => setActiveComponent('asyncAwait')}
+            className="text-left text-blue-400 hover:underline text-xs px-1 py-0.5"
+        >
+            Async Await Promises
+        </button>
         </aside>
 
         {/* Main Content Area */}
@@ -34,6 +41,7 @@ const ListView = () => {
             {activeComponent === 'hoc' && <Hoc />}
             {activeComponent === 'increment' && <Increment />}
             {activeComponent === 'eventLoop' && <EventLoop />}
+            {activeComponent === 'asyncAwait' && <AsyncAwait />}
             {!activeComponent && (
             <div className="text-gray-600 text-xl">
                 Select a module from the left panel

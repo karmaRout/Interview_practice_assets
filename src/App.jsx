@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ListView  from './modules/javascript/listView/ListView.jsx';
+import ReactModule from './modules/react/reactModule/ReactListView.jsx';  
 function CourseSelector() {
   const [activeModule, setActiveModule] = useState(null);
 
@@ -10,7 +11,7 @@ function CourseSelector() {
     <div className="w-screen h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
       {!activeModule && (
         <>
-          <h1 className="text-2xl font-bold mb-8 text-gray-800">Choose a Course</h1>
+          <h1 className="text-2xl font-bold mb-8 text-gray-800">Choose a Topic</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-3xl">
             <div
               onClick={openJavaScript}
