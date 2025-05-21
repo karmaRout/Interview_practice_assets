@@ -3,6 +3,7 @@ import Increment from "../increment/Increment.jsx";
 import Hoc from "./HigherOrderFunction.jsx";
 import EventLoop from "./EventLoop.jsx";
 import AsyncAwait from "./AsyncAwait.jsx";
+import DeepShallowCopy from "./DeepShallowCopy.jsx";
 const ListView = () => {
     const [activeComponent,setActiveComponent] = useState('');
     return(
@@ -34,6 +35,12 @@ const ListView = () => {
         >
             Async Await Promises
         </button>
+        <button
+            onClick={() => setActiveComponent('deepShallowCopy')}
+            className="text-left text-blue-400 hover:underline text-xs px-1 py-0.5"
+        >
+           Deep copy and Shallow Copy
+        </button>
         </aside>
 
         {/* Main Content Area */}
@@ -42,6 +49,7 @@ const ListView = () => {
             {activeComponent === 'increment' && <Increment />}
             {activeComponent === 'eventLoop' && <EventLoop />}
             {activeComponent === 'asyncAwait' && <AsyncAwait />}
+            {activeComponent === 'deepShallowCopy' && <DeepShallowCopy />}
             {!activeComponent && (
             <div className="text-gray-600 text-xl">
                 Select a module from the left panel
