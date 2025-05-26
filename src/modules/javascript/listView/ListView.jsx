@@ -5,6 +5,7 @@ import EventLoop from "./EventLoop.jsx";
 import AsyncAwait from "./AsyncAwait.jsx";
 import DeepShallowCopy from "./DeepShallowCopy.jsx";
 import FinFoffLoop from "./FinFoffLoop.jsx";
+import ArraysAndIterables from "./arraysAndIterables/index";
 
 const ListView = () => {
   const [activeComponent, setActiveComponent] = useState('');
@@ -48,6 +49,9 @@ const ListView = () => {
         <button onClick={() => setActiveComponent('forInForOffLoop')} className="block text-left text-blue-400 hover:underline text-sm">
           For in and for of loop
         </button>
+        <button onClick={() => setActiveComponent('arraysAndIterables')} className="block text-left text-blue-400 hover:underline text-sm">
+          Arrays and iterables
+        </button>
       </aside>
 
       {/* Main Content Area */}
@@ -58,6 +62,7 @@ const ListView = () => {
         {activeComponent === 'asyncAwait' && <AsyncAwait />}
         {activeComponent === 'deepShallowCopy' && <DeepShallowCopy />}
         {activeComponent === 'forInForOffLoop' && <FinFoffLoop />}
+        {activeComponent === 'arraysAndIterables' && <ArraysAndIterables />}
         {!activeComponent && (
           <div className="text-gray-600 text-lg">Select a module from the menu</div>
         )}
